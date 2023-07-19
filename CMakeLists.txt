@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.5)
 project(MyProject)
 
-# Add source files
-file(GLOB SOURCES "src/*.cpp")
-
 include_directories(inc)
 
-# Add executable
+file(GLOB SOURCES "src/*.cpp")
 add_executable(network_interfaces ${SOURCES})
 
+if(WIN32)
+    target_link_libraries(network_interfaces PRIVATE iphlpapi ws2_32)
+else()
+endif()

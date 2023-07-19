@@ -2,7 +2,7 @@
 #include "network_interface.h"
 
 
-#ifdef WIN32
+#ifdef _WIN32
 
     std::vector<network_interface_t> getNetworkInterfaces()
     {
